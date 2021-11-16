@@ -39,3 +39,27 @@ except ValueError:
     print("Invalid input.")
 # finally:
     # print("Finally block executed.") -> finally block gets executed regardless of the try block's outcome. We can also use it as a callback function if what we executed in the try block was meant to be a bucle.
+
+numbers = []
+user_input = ""
+while user_input != "0":
+    user_input = input(
+        "Type the number you want to add or 0 to finish adding:\n")
+    try:
+        numbers.append(int(user_input))
+    except ValueError:
+        print("Invalid value.")
+numbers.remove(0)
+numbers.sort()
+print(numbers)
+
+numbers.clear()
+user_input = input("Type the numbers you want to add sepatared by commas:\n")
+for each_number in user_input.split(","):
+    try:
+        numbers.append(int(each_number))
+    except ValueError:
+        print("Invalid value.")
+numbers.remove(0)
+numbers.sort()
+print(numbers)
