@@ -6,12 +6,12 @@ Python Crash Course.
 
 
 # We use snake_case for names and variables. Also, we can specify the expected type of the parameter and the return with this notation.
-def days_to_seconds(days: int) -> int:
+def days_to_seconds(given_days: int) -> int:
     # Every function requires a docstring.
     """
     Returns the number of seconds for the amount of days given.
     """
-    return days*24*60*60
+    return given_days*24*60*60
 
 
 days = int(input("Specify the amount of days to convert to seconds:"))
@@ -25,8 +25,8 @@ while counter > 0:  # Java: while (counter-- > 0) { ... }
 
 # Ternary operator example in Python: <true> if <condition> else <false> -> Java: <condition> ? <true> : <false>
 for i in range(int(input("Specify the amount of iterations:")), 0, -1):  # range(start, end, step)
-    print(f"{i} iteration(s) left (even)") if i % 2 == 0 else print(
-        f"{i} iteration(s) left (uneven)")
+    print(f"{i} iteration(s) left (even)" if i %
+          2 == 0 else f"{i} iteration(s) left (uneven)")
 
 # Normal if example plus try, except & finally blocks:
 try:
@@ -60,6 +60,11 @@ for each_number in user_input.split(","):
         numbers.append(int(each_number))
     except ValueError:
         print("Invalid value.")
-numbers.remove(0)
 numbers.sort()
 print(numbers)
+
+repeated_numbers = [1, 1, 2, 2, 3, 4, 5]
+print(set(repeated_numbers))
+# set() is a built-in function that returns a set with the unique elements of the list.
+for each_unique_element in set(repeated_numbers):
+    print(each_unique_element)
