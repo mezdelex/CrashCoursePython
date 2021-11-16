@@ -68,3 +68,13 @@ print(set(repeated_numbers))
 # set() is a built-in function that returns a set with the unique elements of the list.
 for each_unique_element in set(repeated_numbers):
     print(each_unique_element)
+
+# We can set the key-value pairs in the definition of the dictionary.
+my_dictionary = {"key1": "value1"}
+# We can add new key-value pairs if we specify new key and asign a value.
+my_dictionary["key2"] = "value2"
+# We can also use the built-in function 'update' to add new key-value pairs, update existing ones or add another dictionary to the current one.
+my_dictionary.update({"key3": "value3"})
+my_second_dictionary = {"key4": "value4"}
+my_dictionary.update(my_second_dictionary)
+print(my_dictionary)
