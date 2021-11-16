@@ -28,9 +28,14 @@ for i in range(int(input("Specify the amount of iterations:")), 0, -1):  # range
     print(f"{i} iteration(s) left (even)") if i % 2 == 0 else print(
         f"{i} iteration(s) left (uneven)")
 
-# Normal if example
-for i in range(int(input("Specify the amount of iterations:")), 0, -1):
-    if i % 2 == 0:
-        print(f"{i} iteration(s) left (even)")
-    else:
-        print(f"{i} iteration(s) left (uneven)")
+# Normal if example plus try, except & finally blocks:
+try:
+    for i in range(int(input("Specify the amount of iterations:")), 0, -1):
+        if i % 2 == 0:
+            print(f"{i} iteration(s) left (even)")
+        else:
+            print(f"{i} iteration(s) left (uneven)")
+except ValueError:
+    print("Invalid input.")
+# finally:
+    # print("Finally block executed.") -> finally block gets executed regardless of the try block's outcome. We can also use it as a callback function if what we executed in the try block was meant to be a bucle.
