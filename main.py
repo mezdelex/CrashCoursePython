@@ -78,3 +78,14 @@ my_dictionary.update({"key3": "value3"})
 my_second_dictionary = {"key4": "value4"}
 my_dictionary.update(my_second_dictionary)
 print(my_dictionary)
+
+# 'items' returns key-value tuples. We can access each index of the tuple with the 'each_item[0]' and 'each_item[1]' notation.
+for each_item in my_dictionary.items():
+    print(each_item, each_item[0], each_item[1])
+
+# 'keys' returns only the keys. There's no need to specify 'keys' as it's the default behavior.
+for each_key in my_dictionary:
+    print(each_key)
+
+for each_value in my_dictionary.values():  # 'values' returns only the values.
+    print(each_value)
