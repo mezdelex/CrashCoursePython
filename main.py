@@ -2,9 +2,15 @@
 Python Crash Course.
 """
 
+# We can import external modules and/or specific variables/functions from them, using the following notations:
+# import <library> -> import <library> as <alias> -> from <library> import <function> -> from <library> import <function> as <alias>
+# worst way to do it: from <library> import *
+
+# We import 'error' from 'logging' module to use it in the 'except' block.
+from logging import error
+
+
 # In Python order matters; function definition goes before the actual call.
-
-
 # We use snake_case for names and variables. Also, we can specify the expected type of the parameter and the return with this notation.
 def days_to_seconds(given_days: int) -> int:
     # Every function requires a docstring.
@@ -36,9 +42,10 @@ try:
         else:
             print(f"{i} iteration(s) left (uneven)")
 except ValueError:
-    print("Invalid input.")
+    error("Invalid input.")
 # finally:
     # print("Finally block executed.") -> finally block gets executed regardless of the try block's outcome. We can also use it as a callback function if what we executed in the try block was meant to be a bucle.
+
 
 numbers = []
 user_input = ""
@@ -48,7 +55,7 @@ while user_input != "0":
     try:
         numbers.append(int(user_input))
     except ValueError:
-        print("Invalid value.")
+        error("Invalid value.")
 numbers.remove(0)
 numbers.sort()
 print(numbers)
@@ -59,7 +66,7 @@ for each_number in user_input.split(","):
     try:
         numbers.append(int(each_number))
     except ValueError:
-        print("Invalid value.")
+        error("Invalid value.")
 numbers.sort()
 print(numbers)
 
