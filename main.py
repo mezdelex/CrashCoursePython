@@ -96,3 +96,60 @@ for each_key in my_dictionary:
 
 for each_value in my_dictionary.values():  # 'values' returns only the values.
     print(each_value)
+
+
+class User:
+    """
+    Python class example
+    """
+
+    # '__init__' is a constructor.
+    def __init__(self, name: str, age: int):
+        self._name = name  # '_' means protected (we use it as private).
+        self._age = age  # '_' means protected (we use it as private).
+
+    # There's no real private attributes in Python, but we can use the '__' notation to hide them. Although, they would still be accessible using _object._attribute notation.
+    # The convention is to use single '_' as private attribute representation to point out that those attributes shouldn't be accessed directly and use property() or decorators to define access.
+
+    # '__str__' returns a string representation of the object.
+    def __str__(self):
+        return f"User: {self._name} - {self._age} years old"
+
+    @property
+    def name(self):
+        """
+        _name getter
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name: str):
+        self._name = name
+
+    @name.deleter
+    def name(self):
+        del self._name
+
+    @property
+    def age(self):
+        """
+        _age getter
+        """
+        return self._age
+
+    @age.setter
+    def age(self, age: int):
+        self._age = age
+
+    @age.deleter
+    def age(self):
+        del self._age
+
+
+# To create an instance of User class, we use the 'User' class name and pass the arguments to the constructor.
+my_user = User("Alex", 35)
+
+# Python follows the Uniform Access Principle (UAP), so that we can access or modify the attributes of the class using the '.' notation directly instead of getters and setters syntax.
+# That allows us to make the code more readable like:
+my_user.age += 1
+# Which equals to my_user.set_age(my_user.get_age() + 1) with traditional getters and setters.
