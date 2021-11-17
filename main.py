@@ -9,6 +9,7 @@ Python Crash Course.
 # We import 'error' from 'logging' module to use it in the 'except' block.
 from logging import error
 from functools import reduce
+from requests import get
 
 
 # In Python order matters; function definition goes before the actual call.
@@ -174,3 +175,10 @@ print(reduce(lambda a, b: a + b,
       [each_number for each_number in random_list if each_number % 2 == 0]))
 
 # The 'each_number' to the left of the 'for' acts as a placeholder in these examples, but we could've done other needed operations.
+
+# Testing the access to GitHub API with 'requests' external library.
+# pip install requests
+my_repos = get("https://api.github.com/users/mezdelex/repos").json()
+
+for repo in my_repos:
+    print(f"{repo['name']} - {repo['description']}\n{repo['git_url']}\n")
