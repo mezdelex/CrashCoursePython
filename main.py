@@ -8,6 +8,7 @@ Python Crash Course.
 
 # We import 'error' from 'logging' module to use it in the 'except' block.
 from logging import error
+from functools import reduce
 
 
 # In Python order matters; function definition goes before the actual call.
@@ -153,3 +154,23 @@ my_user = User("Alex", 35)
 # That allows us to make the code more readable like:
 my_user.age += 1
 # Which equals to my_user.set_age(my_user.get_age() + 1) with traditional getters and setters.
+
+
+# Python way to mimic Java streams: mapping, filtering and collecting all at once.
+random_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+filtered_list = [
+    each_number for each_number in random_list if each_number % 2 == 0]
+print(filtered_list)
+
+# We can also use 'reduce' same way we do in Java 8+. Since it's not a built-in function, we need to import it from 'functools'.
+pair_sum = reduce(lambda a, b: a + b, filtered_list)
+# We used lambda notation to define the behavior of 'reduce': for each pair of elements return its sum.
+# Still missing, or haven't found yet, a way to mimic the option of functional interface as shortcut to specify the behavior instead of using lambda notation.
+# reduce(sum::add, filtered_list) or something like that.
+print(pair_sum)
+
+# All of the above printed directly as a one liner:
+print(reduce(lambda a, b: a + b,
+      [each_number for each_number in random_list if each_number % 2 == 0]))
+
+# The 'each_number' to the left of the 'for' acts as a placeholder in these examples, but we could've done other needed operations.
