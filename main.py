@@ -82,7 +82,7 @@ for each_unique_element in set(repeated_numbers):
 
 # We can set the key-value pairs in the definition of the dictionary.
 my_dictionary = {"key1": "value1"}
-# We can add new key-value pairs if we specify new key and asign a value.
+# We can add new key-value pairs if we specify new key and assign a value.
 my_dictionary["key2"] = "value2"
 # We can also use the built-in function 'update' to add new key-value pairs, update existing ones or add another dictionary to the current one.
 my_dictionary.update({"key3": "value3"})
@@ -190,3 +190,33 @@ Daniel = Father("Brown", "White")
 Alex = Child("Brown", "White")
 
 print(f"{Alex.eyes_color} & {Daniel.eyes_color}")
+
+# Walrus operator ':=' is a Python 3.8+ feature. It's a shortcut to assign a value to a variable inside another expression.
+print(random_value := 10)
+
+
+# We can assign functions to variables like in Javascript.
+def my_function(value_a: int, value_b: int) -> int:
+    """
+    Example function
+
+    Args:
+        value_a (int): Value A
+        value_b (int): Value B
+
+    Returns:
+        int: Sum of the values
+    """
+    return value_a + value_b
+
+
+my_sum = my_function
+my_sum(1, 2)
+
+# To sort lists, we have the built in function 'sort'. But to sort any other iterable, like tuples, we need 'sorted' function.
+my_tuple = ((1, 2), (3, 4), (5, 6), (7, 8), (9, 10))  # Tuple of tuples.
+
+# Sort by the second element of each sub tuple.
+sorted_tuple = sorted(my_tuple, key=lambda x: x[1])
+for sub_tuple in sorted_tuple:
+    print(sub_tuple)
