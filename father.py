@@ -1,5 +1,5 @@
 """
-Father class
+Father class module
 """
 
 
@@ -24,6 +24,7 @@ class Father:
     @eyes_color.setter
     def eyes_color(self, eyes_color: str):
         self._eyes_color = eyes_color
+        return self
 
     @eyes_color.deleter
     def eyes_color(self):
