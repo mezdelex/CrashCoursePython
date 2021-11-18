@@ -220,3 +220,11 @@ my_tuple = ((1, 2), (3, 4), (5, 6), (7, 8), (9, 10))  # Tuple of tuples.
 sorted_tuple = sorted(my_tuple, key=lambda x: x[1])
 for sub_tuple in sorted_tuple:
     print(sub_tuple)
+
+# Another way to represent Java's stream() functions. In Python, they're used as static functions.
+print(reduce(lambda value_1, value_2: value_1 + value_2, filter(lambda element: element > 5, map(
+    lambda element: element*2, [1, 2, 3, 4, 5]))))
+# We first map each value to its double, then filter them by the ones higher than 5 and then reduce them to a single value by adding one to each other.
+
+# Even tho we can assign a lambda function to a variable, it's considered an anti pattern since one of the properties of a lambda function, is that it's anonymous.
+# If we alt + shift + F in VS Code with pylint, it will automatically convert the lamda function to a normal def function for this reason.
