@@ -10,6 +10,8 @@ Python Crash Course.
 from logging import error
 from functools import reduce
 from requests import get
+from father import Father
+from child import Child
 
 
 # In Python order matters; function definition goes before the actual call.
@@ -182,3 +184,8 @@ my_repos = get("https://api.github.com/users/mezdelex/repos").json()
 
 for repo in my_repos:
     print(f"{repo['name']} - {repo['description']}\n{repo['git_url']}\n")
+
+
+Daniel = Father("Brown", "White")
+Alex = Child("Brown", "White")
+print(f"{Alex.eyes_color} & {Daniel.eyes_color}")
